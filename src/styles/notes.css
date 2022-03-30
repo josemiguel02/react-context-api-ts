@@ -29,11 +29,6 @@
   width: 20em;
 }
 
-.notes-input:focus {
-  border: 2px solid #0070f3;
-  box-shadow: 0 2px 8px 0 #0071f344;
-}
-
 .notes-btn {
   border-radius: 0.7em;
   border: none;
@@ -45,18 +40,21 @@
   font-size: 0.9em;
 }
 
-.notes-btn:hover {
-  background-color: #045fc7;
-  box-shadow: 0 2px 8px 0 #0071f3b2;
-}
-
 .notes-item {
-  /* background-color: #eee349; */
   background-color: #0070f3;
   color: white;
   width: 300px;
   height: 100px;
   border-radius: 16px;
+}
+
+.notes-item p {
+  font-size: 1.1em;
+}
+
+.notes-btn:hover {
+  background-color: #045fc7;
+  box-shadow: 0 2px 8px 0 #0071f3b2;
 }
 
 .notes-item:hover {
@@ -66,6 +64,7 @@
   cursor: pointer;
 }
 
-.notes-item p {
-  font-size: 1.1em;
+.notes-input:focus {
+  border: 2px solid #0070f3;
+  box-shadow: 0 2px 8px 0 #0071f344;
 }
