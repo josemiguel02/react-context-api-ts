@@ -1,51 +1,66 @@
+:root {
+  --primary-color: #0070f3;
+  --secondary-color: #045fc7;
+}
+
 .notes-container {
   padding: 15px;
-  margin: 0;
-  overflow: auto;
+  text-align: center;
 }
 
 .notes-list-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0;
-  margin: 2em 0;
-  gap: 1.8em;
-  flex-wrap: wrap;
+  margin-top: 2.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
 }
 
 .notes-form {
   display: flex;
   justify-content: center;
+  gap: 1rem;
+  flex-direction: column;
   align-items: center;
-  gap: 15px;
 }
 
 .notes-input {
   border-radius: 0.7em;
-  border: 1.9px solid #ccc;
+  border: 2px solid #ccc7;
   padding: 0.6em 1em;
   outline: none;
-  width: 20em;
+  width: 100%;
+  max-width: 500px;
+  transition: all 0.3s ease-in;
+  transition-property: border-color, box-shadow;
 }
 
 .notes-btn {
+  width: 100%;
+  max-width: 500px;
   border-radius: 0.7em;
   border: none;
   padding: 0.6em 1em;
-  background-color: #0070f3;
+  background-color: gold;
   color: #fff;
-  cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.4s ease-in;
+  transition-property: background-color, box-shadow;
   font-size: 0.9em;
+  text-transform: uppercase;
+  font-weight: bold;
+}
+
+.notes-error {
+  margin: 0;
+  color: crimson;
+  font-weight: bold;
 }
 
 .notes-item {
-  background-color: #0070f3;
+  background-color: var(--primary-color);
   color: white;
-  width: 300px;
-  height: 100px;
-  border-radius: 16px;
+  border-radius: 0.7em;
+  transition: all 0.4s ease-in;
+  transition-property: background-color, box-shadow;
 }
 
 .notes-item p {
@@ -53,18 +68,18 @@
 }
 
 .notes-btn:hover {
-  background-color: #045fc7;
-  box-shadow: 0 2px 8px 0 #0071f3b2;
+  cursor: pointer;
+  background-color: goldenrod;
+  box-shadow: 0 2px 8px 0 #ffd90085;
 }
 
 .notes-item:hover {
+  cursor: pointer;
   background-color: #252525;
   box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.2);
-  transition: all 0.3s ease-in-out;
-  cursor: pointer;
 }
 
 .notes-input:focus {
-  border: 2px solid #0070f3;
-  box-shadow: 0 2px 8px 0 #0071f344;
+  border-color: var(--primary-color);
+  box-shadow: 2px 2px 5px #0071f344;
 }
