@@ -1,8 +1,10 @@
-import { FormEvent } from 'react'
+import { FormEvent, useState } from 'react'
 import { useForm } from '../hooks/useForm'
 import { useNotes } from '../hooks/useNotes'
 
 export const NotesForm = () => {
+  const [error, setError] = useState(false)
+
   const { dispatch } = useNotes()
   const { values, handlerChange, setValues } = useForm({
     title: '',
@@ -11,10 +13,12 @@ export const NotesForm = () => {
 
   const { title, description } = values
 
-  const handlerSubmit = (e: FormEvent) => {
+  const handleSubmit = (e: FormEvent) => {
     e.preventDefault()
 
     if (title !== '' && description !== '') {
+      setError(false)
+
       dispatch({
         type: 'add',
         payload: { id: Date.now(), title, description }
@@ -28,11 +32,11 @@ export const NotesForm = () => {
       return
     }
 
-    alert('Please fill in the form')
+    setError(true)
   }
 
   return (
-    <form onSubmit={handlerSubmit} className='notes-form'>
+    <form onSubmit={handleSubmit} className='notes-form'>
       <input
         value={title}
         onChange={handlerChange}
@@ -51,7 +55,11 @@ export const NotesForm = () => {
         className='notes-input'
       />
 
-      <button className='notes-btn'>New Note</button>
+      <button type='submit' className='notes-btn'>
+        New Note
+      </button>
+
+      {error && <p className='notes-error'>Please fill in the form :)</p>}
     </form>
   )
 }
